@@ -1,21 +1,26 @@
-function updateOutput(clicked) {
-  document.querySelector('.output').textContent += clicked;
-}
+// function updateOutput(clicked) {
+//   document.querySelector('.output').textContent += clicked;
+// }
 // var output = "0";
 //
 // function convertOutput() {
 //   document.querySelector('.output').textContent = output;
 // }
+var mathStore = "0";
 
 function clickNumber(clicked) {
   if (document.querySelector('.output').textContent === "0"){
     document.querySelector('.output').textContent = "";
-    updateOutput(clicked);
+    document.querySelector('.output').textContent += clicked;
+    mathStore +=  document.querySelector('.output').textContent;
+    console.log(mathStore);
 } else {
-    updateOutput(clicked);
-
+    document.querySelector('.output').textContent += clicked;
+    mathStore +=  document.querySelector('.output').textContent;
+    console.log(mathStore);
 }
 };
+
 // LISTENER FOR MATH OPERATORS
 // var mathyArray = document.querySelectorAll('.mathy');
 // for (var i = 0; i < mathyArray.length; i++) {
@@ -42,15 +47,17 @@ function clickMathy(mClicked) {
 // } else {
 //   document.querySelector('.output').textContent = mathStore;
 // console.log(mathStore);
-//
 // }
 // }
-
-
 
 function clickEquals(eClicked)  {
   mathStore = document.querySelector('.output').textContent;
   console.log(mathStore);
   document.querySelector('.output').textContent = eval(mathStore);
   console.log(mathStore);
+}
+
+function clickClear(cClicked) {
+  mathStore = "0";
+  document.querySelector('.output').textContent = mathStore;
 }
